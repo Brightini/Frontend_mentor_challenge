@@ -1,0 +1,83 @@
+body {
+	background-image: url("images/bg-intro-desktop.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-color: rgb(255, 144, 127);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	place-items: center;
+}
+
+.grid-container .left-grid {
+	color: white;
+	width: 350px;
+}
+
+.grid-container .left-grid h3 {
+	font-size: 40px;
+}
+
+.grid-container .left-grid p {
+	font-size: 15px;
+}
+
+.grid-container .right-grid .try-button {
+	background-color: rgb(75, 38, 168);
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+	width: 450px;
+	height: 50px;
+	font-size: 11px;
+	margin-top: 100px;
+	margin-bottom: 12px;
+	box-shadow: 2, 4, 5;
+}
+
+.grid-container .right-grid .form {
+	display: grid;
+	background-color: #ffffff;
+	border-radius: 10px;
+	width: 450px;
+	place-items: center;
+	gap: 12px;
+	padding-top: 38px;
+	padding-bottom: 38px;
+}
+
+.grid-container .right-grid .form p {
+	font-size: 10px;
+	color: gray;
+}
+
+.grid-container .right-grid .form p a {
+	color: red;
+	text-decoration: none;
+}
+
+.grid-container .right-grid .form button {
+	width: 363px;
+	cursor: pointer;
+	height: 50px;
+	background-color: rgb(20, 215, 105);
+	border: none;
+	border-radius: 5px;
+	font-size: 11px;
+	color: white;
+}
+
+input[type=text], input[type=email], input[type=password] {
+	padding: 15px;
+	border: 1px solid gray;
+	border-radius: 5px;
+	width: 330px;
+	margin-left: 38px;
+	margin-right: 38px;
+}
