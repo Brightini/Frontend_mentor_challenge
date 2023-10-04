@@ -41,6 +41,10 @@ body {
 	box-shadow: 2, 4, 5;
 }
 
+.grid-container .right-grid .try-button:hover {
+	background-color: rgb(97, 60, 190);
+}
+
 .grid-container .right-grid .form {
 	display: grid;
 	background-color: #ffffff;
@@ -62,7 +66,7 @@ body {
 	text-decoration: none;
 }
 
-.grid-container .right-grid .form button {
+.grid-container .right-grid .form #submit {
 	width: 363px;
 	cursor: pointer;
 	height: 50px;
@@ -73,6 +77,10 @@ body {
 	color: white;
 }
 
+.grid-container .right-grid .form #submit:hover {
+	background-color:  rgb(64, 221, 130);
+}
+
 input[type=text], input[type=email], input[type=password] {
 	padding: 15px;
 	border: 1px solid gray;
@@ -80,4 +88,13 @@ input[type=text], input[type=email], input[type=password] {
 	width: 330px;
 	margin-left: 38px;
 	margin-right: 38px;
+}
+
+.error-message {
+	font-size: 70%;
+	font-style: italic;
+	color: #900;
+	white-space: pre;
+	padding-left: 40px;
+	display:block; /* initially hide the error message */
 }
