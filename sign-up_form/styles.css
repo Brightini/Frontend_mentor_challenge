@@ -94,7 +94,6 @@ input[type=text], input[type=email], input[type=password] {
 	font-size: 70%;
 	font-style: italic;
 	color: #900;
-	white-space: pre;
 	padding-left: 40px;
 	display:block; /* initially hide the error message */
 }

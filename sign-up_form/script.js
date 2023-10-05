@@ -11,7 +11,7 @@ const passwordError = document.getElementById("passwordError");
 email.addEventListener("input", (event) => {
 	if (email.validity.valid) {
 		emailError.textContent = "";
-		emailError.className = "emailError";
+		email.style.border = "1px solid gray";
 	} else {
 		displayEmailError();
 	}
@@ -20,7 +20,7 @@ email.addEventListener("input", (event) => {
 firstName.addEventListener("input", (event) => {
 	if (firstName.validity.valid) {
 		firstNameError.textContent = "";
-		firstNameError.className = "firstNameError";
+		firstName.style.border = "1px solid gray";
 	} else {
 		displayFirstNameError();
 	}
@@ -29,7 +29,7 @@ firstName.addEventListener("input", (event) => {
 lastName.addEventListener("input", (event) => {
 	if (lastName.validity.valid) {
 		lastNameError.textContent = "";
-		lastNameError.className = "lastNameError";
+		lastName.style.border = "1px solid gray";
 	} else {
 		displayLastNameError();
 	}
@@ -38,7 +38,7 @@ lastName.addEventListener("input", (event) => {
 password.addEventListener("input", (event) => {
 	if (password.validity.valid) {
 		passwordError.textContent = "";
-		passwordError.className = "passwordError";
+		password.style.border = "1px solid gray";
 	} else {
 		displayPasswordError();
 	}
@@ -56,64 +56,65 @@ form.addEventListener("submit", (event) => {
 		displayLastNameError();
 		displayPasswordError();
 		event.preventDefault();
-	} else if (!firstName.validity.valid) {
-		displayFirstNameError();
+	}
+	const firstNameCheck = displayFirstNameError();
+	if (firstNameCheck === 1) {
 		event.preventDefault();
-	} else if (!lastName.validity.valid) {
-		displayLastNameError();
+	}
+	const lastNameCheck = displayLastNameError();
+	if (lastNameCheck === 1) {
 		event.preventDefault();
-	} else if (!email.validity.valid) {
-		displayEmailError();
+	}
+	const emailCheck = displayEmailError();
+	if (emailCheck === 1) {
 		event.preventDefault();
-	} else if (!password.validity.valid) {
-		displayPasswordError();
+	}
+	const passwordCheck = displayPasswordError();
+	if (passwordCheck === 1) {
 		event.preventDefault();
 	}
 })
 
 function displayEmailError() {
-	if (firstName.validity.valid) {
-		lastName.style.border = "1px solid gray";
-	} else if (email.validity.valueMissing) {
-		emailError.textContent = "Email cannot be empty";
+	if (!email.validity.valid) {
 		email.style.border = "1px solid #900";
-	} else if (email.validity.typeMismatch) {
-		emailError.textContent = "Looks like this is not an email";
-		email.style.border = "1px solid #900";
-	}
+		emailError.className = "error-message";
 
-	emailError.className = "error-message";
+		if (email.validity.valueMissing) {
+			emailError.textContent = "Email cannot be empty";
+		} else if (email.validity.typeMismatch) {
+			emailError.textContent = "Looks like this is not an email";
+		}
+		return 1;
+	}
 }
 
 function displayFirstNameError() {
-	if (firstName.validity.valid) {
-		lastName.style.border = "1px solid gray";
-	} else {
+	if (!firstName.validity.valid) {
 		firstNameError.textContent = "First name cannot be empty";
 		firstName.style.border = "1px solid #900";
+		firstNameError.className = "error-message";
+		return 1;
 	}
-
-	firstNameError.className = "error-message";
+	return 0;
 }
 
 function displayLastNameError() {
-	if (lastName.validity.valid) {
-		lastName.style.border = "1px solid gray";
-	} else {
+	if (!lastName.validity.valid) {
 		lastNameError.textContent = "Last name cannot be empty";
 		lastName.style.border = "1px solid #900";
+		lastNameError.className = "error-message";
+		return 1;
 	}
-
-	lastNameError.className = "error-message";
+	return 0;
 }
 
 function displayPasswordError() {
-	if (password.validity.valid) {
-		lastName.style.border = "1px solid gray";
-	} else {
+	if (!password.validity.valid) {
 		passwordError.textContent = "Password cannot be empty";
 		password.style.border = "1px solid #900";
+		passwordError.className = "error-message";
+		return 1;
 	}
-
-	passwordError.className = "error-message";
+	return 0;
 }
